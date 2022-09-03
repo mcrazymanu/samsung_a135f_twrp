@@ -94,3 +94,13 @@ TARGET_USES_LOGD := true
 TWRP_INCLUDE_LOGCAT := true
 TW_INCLUDE_FB2PNG := true
 TWRP_EVENT_LOGGING := true
+
+#
+# For local builds only
+#
+# TWRP zip installer
+# See https://gerrit.twrp.me/c/android_build/+/4964 for details
+ifneq ($(wildcard bootable/recovery/installer/.),)
+    USE_RECOVERY_INSTALLER := true
+    RECOVERY_INSTALLER_PATH := bootable/recovery/installer
+endif
